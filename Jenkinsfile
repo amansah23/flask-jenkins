@@ -14,7 +14,7 @@ pipeline{
         }
         stage('run'){
             steps{
-                sh 'docker run -dit -p 5000:5000 --name flaskcontainer myflask'
+                sh 'docker run -dit --name flaskcontainer -p 5000:5000 myflask'
             }
         }
     }
