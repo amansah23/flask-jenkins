@@ -12,6 +12,11 @@ pipeline{
                 sh 'docker build -t myflask .'
             }
         }
+        stage('remove container'){
+            steps{
+                sh 'docker rm -f flaskcontainer'
+            }
+        }
         stage('run'){
             steps{
                 sh 'docker run -dit --name flaskcontainer -p 5000:5000 myflask'
